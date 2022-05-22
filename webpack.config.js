@@ -21,9 +21,15 @@ module.exports = {
                 use: ['style-loader','css-loader','sass-loader']
             },
             {
-                test: /\.(png|jpg|gif)$/,
-                use: ['file-loader']
-            },
+                test: /\.(svg|png|jpg|gif)$/,
+                use: {
+                  loader: "file-loader",
+                  options: {
+                    name: "[name].[hash].[ext]",
+                    outputPath: "images"
+                  }
+                }
+              },
         ]
     },
 plugins : [
